@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Words and characters counts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid p-5 bg-dark text-white text-center">
+  <h1>Words and characters counts</h1>
+  <p>"Discover the magic of language, expressing ideas concisely while keeping a watchful eye on word and character limits.</p> 
+</div>
+  
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="count-prev p-3 mb-2 bg-light text-dark">0 word 0 character</h1>
+      <textarea class="form-control" rows="10" id="mytextbox" name="text" placeholder="Type here, copy and past your text here.."></textarea>
+        <p class="count-prev p-3 mb-2 bg-light text-dark">0 word 0 character</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+$(document).ready(function(){
+  $("#mytextbox").on('keyup keypress paste',function(){
+    console.log($("#mytextbox").val());
+    let char = $("#mytextbox").val();
+    let word =char.trim()==""?[]: char.trim().split(" ");
+    let text =  word.length + ((word.length > 1) ? " words " : " word ") +char.length+ ((char.length > 1) ? " characters " : " character");
+    $(".count-prev").text(text);
+  });
+});
+</script>

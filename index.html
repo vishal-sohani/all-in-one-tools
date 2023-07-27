@@ -34,7 +34,6 @@
 <script>
 $(document).ready(function(){
   $("#mytextbox").on('keyup keypress paste',function(){
-    console.log($("#mytextbox").val());
     let char = $("#mytextbox").val();
     let word =char.trim()==""?[]: char.trim().split(" ");
     let text =  word.length + ((word.length > 1) ? " words " : " word ") +char.length+ ((char.length > 1) ? " characters " : " character");

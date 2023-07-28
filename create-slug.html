@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SLUG GENERATOR</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+    
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/index.html" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a href="/create-slug.html" class="nav-link px-2 link-dark">Slug Generator</a></li>
+        </ul>
+    
+        <!-- <div class="col-md-3 text-end">
+          <button type="button" class="btn btn-outline-primary me-2">Login</button>
+          <button type="button" class="btn btn-primary">Sign-up</button>
+        </div> -->
+      </header>
+    <div class="container-fluid p-5 bg-dark text-white text-center">
+      <h1>SLUG GENERATOR</h1>
+      <p>
+        "Discover the magic of language, expressing ideas concisely while
+        keeping a watchful eye on word and character limits.
+      </p>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="p-3 mb-2 bg-light text-dark">Your Text</h1>
+          <input
+            class="form-control"
+            rows="10"
+            id="mytextbox"
+            name="text"
+            placeholder="Type here, copy and past your text here.."
+          />
+          <div class="card">
+            <div class="card-body">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="-"
+                  name="seprate_with"
+                  checked
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Seprated With Dash(-)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="_"
+                  name="seprate_with"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Separate with underscore (_)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="removeNumber"
+                  checked
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Remove Number
+                </label>
+              </div>
+            </div>
+          </div>
+          <h1 class="p-3 mb-2 bg-light text-dark">Results:</h1>
+          <p class="count-prev p-3 mb-2 bg-light text-dark"></p>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="d-flex flex-wrap justify-content-center align-items-center py-3 border-top bg-dark text-white"
+    >
+      <div class="text-center">
+        <span class="mb-3 mb-md-0 text-white">© 2023 Vishal Sohani</span>
+      </div>
+    </footer>
+  </body>
+</html>
+<script>
+  $(document).ready(function () {
+    $("#mytextbox").on("keyup keypress paste", function () {
+      var str = $("#mytextbox").val();
+      let sperate = $("input[name=seprate_with]:checked").val();
+         str = $.trim(str);
+    var   $slug = "";
+    //   alert(str);
+   
+    if($('#removeNumber').is(':checked'))
+    str = str.replace(/[^a-z-]/gi, '-');
+
+      if (sperate == "-"){
+        str = str
+              .replace(/ /g, '-')
+              .replace(/[-]+/g, '-')
+              .replace(/[_]+/g, "")
+              .replace(/[^\w-]+/g, "");
+      }
+      else{
+        str = str
+          .replace(/ /g, sperate)
+          .replace(/[_]+/g, sperate)
+          .replace(/[-]+/g, "_")
+          .replace(/[^\w_]+/g, "");
+      }
+   
+ 
+
+      $(".count-prev").text(str.toLowerCase());
+    });
+  });
+</script>

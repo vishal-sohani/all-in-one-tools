@@ -1,6 +1,6 @@
-All-in-One Tools: Character Count, QR Code Generation, Slug Generation
-Overview
-Welcome to the All-in-One Tools repository! This collection of tools provides a convenient way to perform three common tasks: character counting, QR code generation, and slug generation. Whether you're a developer, writer, or just someone looking for quick and easy solutions, these tools can save you time and effort.
+<h1>All-in-One Tools: Character Count, QR Code Generation, Slug Generation<h1>
+<h3>Overview<h3>
+<p>Welcome to the All-in-One Tools repository! This collection of tools provides a convenient way to perform three common tasks: character counting, QR code generation, and slug generation. Whether you're a developer, writer, or just someone looking for quick and easy solutions, these tools can save you time and effort.</p>
 
 Features
 Character Count Tool
